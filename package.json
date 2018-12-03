@@ -1,6 +1,6 @@
 {
   "name": "json-rpc-proxy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Quickly create JSON-RPC using Proxy",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
