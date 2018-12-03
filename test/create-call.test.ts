@@ -11,6 +11,9 @@ test('createCall(target)', () => {
   , exit(code: number) {
       return code
     }
+  , whoami() {
+      return this
+    }
   }
 
   const call = createCall(target)
@@ -31,4 +34,17 @@ test('createCall(target)', () => {
   , method: 'exit'
   , params: [0]
   })).toEqual(0)
+
+  expect(call({
+    jsonrpc: '2.0'
+  , method: 'whoami'
+  })).toBe(target)
+
+  expect(call(
+    {
+      jsonrpc: '2.0'
+    , method: 'whoami'
+    }
+  , 'root')
+  ).toBe('root')
 })
