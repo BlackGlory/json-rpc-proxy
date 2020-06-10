@@ -1,7 +1,7 @@
 {
   "name": "json-rpc-proxy",
   "version": "0.3.0",
-  "description": "Quickly create JSON-RPC using Proxy",
+  "description": "The helper functions for JSON-RPC 2.0 requests and notifications",
   "files": [
     "lib",
     "dist"

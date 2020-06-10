@@ -1,5 +1,7 @@
 # json-rpc-proxy
 
+The helper functions for JSON-RPC 2.0 requests and notifications.
+
 ## Install
 
 ```sh
