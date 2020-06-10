@@ -2,7 +2,7 @@ import { applyRequest } from '@src/apply-request'
 import { request } from 'json-rpc-creator'
 import '@test/matchers'
 
-describe('applyRequest<T extends Json | StructuredClone>(obj: any, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>>', () => {
+describe('applyRequest<T extends Json | StructuredClone = Json>(obj: any, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>>', () => {
   describe('async method', () => {
     describe('request.params doesnt exist', () => {
       it('return Promise<JsonRpcSuccess>', async () => {

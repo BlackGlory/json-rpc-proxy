@@ -2572,10 +2572,10 @@ json-parse-better-errors@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
   integrity sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
 
-json-rpc-creator@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/json-rpc-creator/-/json-rpc-creator-2.1.0.tgz#1468d6d62897d001561864b930b26b9090aeaae8"
-  integrity sha512-snKw2o6VyxCc54mklnS3Qv9F1AvPStkCih1tGqds1BEfLj7N2U2dGlJuWTakZ1G5wXXlJwcMIsj9VMSbHn+mQw==
+json-rpc-creator@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/json-rpc-creator/-/json-rpc-creator-2.2.0.tgz#cc3e6a10f0a1b8e1731c81ad571ee5c8104a0dd7"
+  integrity sha512-7cbB1P0L6RarbVwCSsCPmen8voVD5wWBTPYfBrYtYDS+9/k+SXF6/QjDsty8C9jtWHZN81gwVqH2p7bF0AZHgQ==
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"

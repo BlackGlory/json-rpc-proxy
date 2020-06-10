@@ -15,23 +15,23 @@ yarn add json-rpc-proxy
 ### createRequestProxy
 
 ```ts
-function createRequestProxy<T extends object, U extends Json | StructuredClone = Json>(target: T, createId: () => string): RequestProxy<T, U>
+function createRequestProxy<T extends object, U extends Json | StructuredClone = Json>(createId: () => string): RequestProxy<T, U>
 ```
 
 ### createNotificationProxy
 
 ```ts
-function createNotificationProxy<T extends object, U extends Json | StructuredClone = Json>(target: T): NotificationProxy<T, U>
+function createNotificationProxy<T extends object, U extends Json | StructuredClone = Json>(): NotificationProxy<T, U>
 ```
 
 ### applyRequest
 
 ```ts
-function applyRequest<T extends Json | StructuredClone>(obj: object, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>>
+function applyRequest<T extends Json | StructuredClone = Json>(obj: object, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>>
 ```
 
 ### applyNotification
 
 ```ts
-function applyNotification<T extends Json | StructuredClone>(obj: object, notification: JsonRpcNotification<T>): void | Promise<void>
+function applyNotification<T extends Json | StructuredClone = Json>(obj: object, notification: JsonRpcNotification<T>): void | Promise<void>
 ```
