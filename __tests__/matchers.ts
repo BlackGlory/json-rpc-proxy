@@ -1,3 +1,13 @@
+/* eslint-disable */
+declare global {
+  namespace jest {
+    interface Matchers<R> {
+      toBePromise(): R
+    }
+  }
+}
+/* eslint-enable */
+
 expect.extend({
   toBePromise(received: unknown) {
     if (isPromise(received)) {
@@ -13,14 +23,6 @@ expect.extend({
     }
   }
 })
-
-declare global {
-  namespace jest {
-    interface Matchers<R> {
-      toBePromise(): R
-    }
-  }
-}
 
 function isPromise<T>(val: any): val is Promise<T> {
   return val instanceof Promise
