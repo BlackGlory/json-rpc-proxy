@@ -1,3 +1,5 @@
+import { isPromise } from 'extra-promise'
+
 /* eslint-disable */
 declare global {
   namespace jest {
@@ -23,9 +25,3 @@ expect.extend({
     }
   }
 })
-
-function isPromise<T>(val: any): val is Promise<T> {
-  return val instanceof Promise
-}
-
-export {} // fuck tsc

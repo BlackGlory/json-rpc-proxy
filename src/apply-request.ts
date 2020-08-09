@@ -1,11 +1,11 @@
 import { success, JsonRpcRequest, Json, StructuredClone, JsonRpcSuccess } from 'json-rpc-creator'
-import { isPromise } from 'extra-promise'
+import { isPromiseLike } from 'extra-promise'
 
 export function applyRequest<T extends Json | StructuredClone = Json>(obj: object, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>> {
   const method = request.method
   const params = getParams()
   const result = Reflect.apply(Reflect.get(obj, method), obj, params)
-  if (isPromise<T>(result)) {
+  if (isPromiseLike<T>(result)) {
     return (async () => success(request.id, await result))()
   } else {
     return success(request.id, result)
