@@ -1,6 +1,6 @@
 import { applyNotification } from '@src/apply-notification'
 import { notification } from 'json-rpc-creator'
-import '@test/matchers'
+import '@blackglory/jest-matchers'
 
 describe('applyNotification<T extends Json | StructuredClone = Json>(obj: any, notification: JsonRpcNotification<T>): void | Promise<void>', () => {
   describe('async method', () => {
