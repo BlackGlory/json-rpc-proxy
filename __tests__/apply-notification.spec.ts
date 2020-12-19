@@ -2,7 +2,7 @@ import { applyNotification } from '@src/apply-notification'
 import { notification } from 'json-rpc-creator'
 import '@blackglory/jest-matchers'
 
-describe('applyNotification<T extends Json | StructuredClone = Json>(obj: any, notification: JsonRpcNotification<T>): void | Promise<void>', () => {
+describe('applyNotification<T>(obj: any, notification: JsonRpcNotification<T>): void | Promise<void>', () => {
   describe('async method', () => {
     describe('request.params doesnt exist', () => {
       it('return Promise<JsonRpcNotification>', async () => {

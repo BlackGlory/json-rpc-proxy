@@ -1,4 +1,4 @@
-export type FunctionKeys<T> = {
+type FunctionKeys<T> = {
   [P in keyof T]:
     T[P] extends (...args: any) => unknown
       ? P

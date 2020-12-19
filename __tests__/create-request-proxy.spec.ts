@@ -1,6 +1,6 @@
 import { createRequestProxy } from '@src/create-request-proxy'
 
-describe('createRequestProxy<T extends object, U extends Json | StructuredClone = Json>(target: T, createId = () => string): RequstProxy<T, U>', () => {
+describe('createRequestProxy<T extends object, U>(target: T, createId = () => string): RequstProxy<T, U>', () => {
   it('return RequestProxy', () => {
     const createId = jest.fn().mockReturnValue(0)
     interface Remote {

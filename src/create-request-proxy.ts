@@ -1,14 +1,14 @@
-import { Json, StructuredClone, JsonRpcRequest, request } from 'json-rpc-creator'
-import { FunctionKeys } from './shared'
+import { JsonRpcRequest } from '@blackglory/types'
+import { request } from 'json-rpc-creator'
 
-type RequestProxy<T, U extends Json | StructuredClone> = {
+type RequestProxy<T, U> = {
   [P in FunctionKeys<T>]:
     T[P] extends (...args: infer V) => unknown
       ? (...args: V) => JsonRpcRequest<U>
       : never
 }
 
-export function createRequestProxy<T extends object, U extends Json | StructuredClone = Json>(createId: () => string): RequestProxy<T, U> {
+export function createRequestProxy<T extends object, U = unknown>(createId: () => string): RequestProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
       return (...args: U[]) => request(createId(), prop, args)

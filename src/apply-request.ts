@@ -1,10 +1,10 @@
-import { success, JsonRpcRequest, Json, StructuredClone, JsonRpcSuccess } from 'json-rpc-creator'
-import { isPromiseLike } from 'extra-promise'
+import { isPromiseLike, JsonRpcRequest, JsonRpcSuccess, Dict } from '@blackglory/types'
+import { success } from 'json-rpc-creator'
 
-export function applyRequest<T extends Json | StructuredClone = Json>(obj: object, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>> {
+export function applyRequest<T>(callables: Dict<Function>, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>> {
   const method = request.method
   const params = getParams()
-  const result = Reflect.apply(Reflect.get(obj, method), obj, params)
+  const result = Reflect.apply(Reflect.get(callables, method), callables, params)
   if (isPromiseLike<T>(result)) {
     return (async () => success(request.id, await result))()
   } else {

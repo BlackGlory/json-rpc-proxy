@@ -1,10 +1,9 @@
-import { JsonRpcNotification, Json, StructuredClone } from 'json-rpc-creator'
-import { isPromiseLike } from 'extra-promise'
+import { JsonRpcNotification, isPromiseLike, Dict } from '@blackglory/types'
 
-export function applyNotification<T extends Json | StructuredClone = Json>(obj: object, notification: JsonRpcNotification<T>): void | Promise<void> {
+export function applyNotification<T>(callables: Dict<Function>, notification: JsonRpcNotification<T>): void | Promise<void> {
   const method = notification.method
   const params = getParams()
-  const result = Reflect.apply(Reflect.get(obj, method), obj, params)
+  const result = Reflect.apply(Reflect.get(callables, method), callables, params)
   if (isPromiseLike(result)) {
     return (async () => {
       await result

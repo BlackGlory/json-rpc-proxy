@@ -67,7 +67,7 @@ export default [
   , target: 'ES2015'
   })
 , ...createOptions({
-    directory: 'es2017'
-  , target: 'ES2017'
+    directory: 'es2018'
+  , target: 'ES2018'
   })
 ]
