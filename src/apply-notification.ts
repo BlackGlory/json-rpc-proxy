@@ -1,24 +1,14 @@
-import { JsonRpcNotification, isPromiseLike, Dict } from '@blackglory/types'
+import { isFunction, JsonRpcNotification, Dict } from '@blackglory/types'
+import { getParams } from './shared'
 
-export function applyNotification<T>(callables: Dict<Function>, notification: JsonRpcNotification<T>): void | Promise<void> {
-  const method = notification.method
-  const params = getParams()
-  const result = Reflect.apply(Reflect.get(callables, method), callables, params)
-  if (isPromiseLike(result)) {
-    return (async () => {
-      await result
-    })()
-  }
-
-  function getParams() {
-    if (notification.params) {
-      if (Array.isArray(notification.params)) {
-        return notification.params
-      } else {
-        return [notification.params]
-      }
-    } else {
-      return []
-    }
+export async function applyNotification<T>(
+  callables: Dict<Function>
+, notification: JsonRpcNotification<T>
+): Promise<void> {
+  const fn = Reflect.get(callables, notification.method)
+  if (isFunction(fn)) {
+    try {
+      await Reflect.apply(fn, callables, getParams(notification))
+    } catch {}
   }
 }

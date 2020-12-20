@@ -2,98 +2,79 @@ import { applyNotification } from '@src/apply-notification'
 import { notification } from 'json-rpc-creator'
 import '@blackglory/jest-matchers'
 
-describe('applyNotification<T>(obj: any, notification: JsonRpcNotification<T>): void | Promise<void>', () => {
-  describe('async method', () => {
-    describe('request.params doesnt exist', () => {
-      it('return Promise<JsonRpcNotification>', async () => {
-        const fn = jest.fn().mockResolvedValue(undefined)
-        const obj = { fn }
-        const notice = notification('fn')
+describe('applyNotification<T>(callables: Dict<Function>, notification: JsonRpcNotification<T>): Promise<void>', () => {
+  describe('method not found', () => {
+    it('return Promise<void>', async () => {
+      const callables = {}
+      const req = notification('fn')
 
-        const result = applyNotification(obj, notice)
-        const proResult = await result
+      const result = applyNotification(callables, req)
+      const proResult = await result
 
-        expect(result).toBePromise()
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith()
-        expect(proResult).toBeUndefined()
-      })
-    })
-
-    describe('notification.params by-position', () => {
-      it('return Promise<void>', async () => {
-        const fn = jest.fn().mockResolvedValue(undefined)
-        const obj = { hello: fn }
-        const notice = notification('hello', ['world'])
-
-        const result = applyNotification(obj, notice)
-        const proResult = await result
-
-        expect(result).toBePromise()
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith('world')
-        expect(proResult).toBeUndefined()
-      })
-    })
-
-    describe('notification.params by-name', () => {
-      it('return Promise<void>', async () => {
-        const fn = jest.fn().mockResolvedValue(undefined)
-        const obj = { hello: fn }
-        const notice = notification('hello', { who: 'world' })
-
-        const result = applyNotification(obj, notice)
-        const proResult = await result
-
-        expect(result).toBePromise()
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith({ who: 'world' })
-        expect(proResult).toBeUndefined()
-      })
+      expect(result).toBePromise()
+      expect(proResult).toBeUndefined()
     })
   })
 
-  describe('sync method', () => {
-    describe('request.params doesnt exist', () => {
-      it('return JsonRpcNotification', async () => {
-        const fn = jest.fn()
-        const obj = { fn }
-        const notice = notification('fn')
+  describe('method throws error', () => {
+    it('return Promise<void>', async () => {
+      const fn = jest.fn().mockRejectedValue(new Error('message'))
+      const callables = { fn }
+      const req = notification('fn')
 
-        const result = applyNotification(obj, notice)
+      const result = applyNotification(callables, req)
+      const proResult = await result
 
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith()
-        expect(result).toBeUndefined()
-      })
+      expect(result).toBePromise()
+      expect(proResult).toBeUndefined()
     })
+  })
 
-    describe('notification.params by-position', () => {
-      it('return undefined', () => {
-        const fn = jest.fn()
-        const obj = { hello: fn }
-        const notice = notification('hello', ['world'])
+  describe('request.params doesnt exist', () => {
+    it('return Promise<void>', async () => {
+      const fn = jest.fn().mockResolvedValue(undefined)
+      const callables = { fn }
+      const notice = notification('fn')
 
-        const result = applyNotification(obj, notice)
+      const result = applyNotification(callables, notice)
+      const proResult = await result
 
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith('world')
-        expect(result).toBeUndefined()
-      })
+      expect(result).toBePromise()
+      expect(fn).toBeCalledTimes(1)
+      expect(fn).toBeCalledWith()
+      expect(proResult).toBeUndefined()
     })
+  })
 
-    describe('notification.params by-name', () => {
-      it('return undefined', () => {
-        const fn = jest.fn()
-        const obj = { hello: fn }
-        const notice = notification('hello', { who: 'world' })
+  describe('notification.params by-position', () => {
+    it('return Promise<void>', async () => {
+      const fn = jest.fn().mockResolvedValue(undefined)
+      const callables = { hello: fn }
+      const notice = notification('hello', ['world'])
 
-        const result = applyNotification(obj, notice)
+      const result = applyNotification(callables, notice)
+      const proResult = await result
 
-        expect(fn).toBeCalledTimes(1)
-        expect(fn).toBeCalledWith({ who: 'world' })
-        expect(result).toBeUndefined()
-      })
+      expect(result).toBePromise()
+      expect(fn).toBeCalledTimes(1)
+      expect(fn).toBeCalledWith('world')
+      expect(proResult).toBeUndefined()
+    })
+  })
+
+  describe('notification.params by-name', () => {
+    it('return Promise<void>', async () => {
+      const fn = jest.fn().mockResolvedValue(undefined)
+      const callables = { hello: fn }
+      const notice = notification('hello', { who: 'world' })
+
+      const result = applyNotification(callables, notice)
+      const proResult = await result
+
+      expect(result).toBePromise()
+      expect(fn).toBeCalledTimes(1)
+      expect(fn).toBeCalledWith({ who: 'world' })
+      expect(proResult).toBeUndefined()
     })
   })
 })

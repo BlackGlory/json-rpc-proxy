@@ -10,5 +10,6 @@ module.exports = {
   ]
 , rules: {
     '@typescript-eslint/ban-types': 'off'
+  , 'no-empty': 'off'
   }
 }

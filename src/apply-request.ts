@@ -1,25 +1,20 @@
-import { isPromiseLike, JsonRpcRequest, JsonRpcSuccess, Dict } from '@blackglory/types'
-import { success } from 'json-rpc-creator'
+import { isFunction, JsonRpcRequest, JsonRpcResponse, Dict } from '@blackglory/types'
+import { success, error } from 'json-rpc-creator'
+import { getParams } from './shared'
 
-export function applyRequest<T>(callables: Dict<Function>, request: JsonRpcRequest<T>): JsonRpcSuccess<T> | Promise<JsonRpcSuccess<T>> {
-  const method = request.method
-  const params = getParams()
-  const result = Reflect.apply(Reflect.get(callables, method), callables, params)
-  if (isPromiseLike<T>(result)) {
-    return (async () => success(request.id, await result))()
-  } else {
-    return success(request.id, result)
+export async function applyRequest<T>(
+  callables: Dict<Function>
+, request: JsonRpcRequest<T>
+): Promise<JsonRpcResponse<T>> {
+  const fn = Reflect.get(callables, request.method)
+  if (!isFunction(fn)) {
+    return error(request.id, -32601, 'The method does not exist / is not available.')
   }
 
-  function getParams() {
-    if (request.params) {
-      if (Array.isArray(request.params)) {
-        return request.params
-      } else {
-        return [request.params]
-      }
-    } else {
-      return []
-    }
+  try {
+    const result = await Reflect.apply(fn, callables, getParams(request))
+    return success(request.id, result)
+  } catch (e) {
+    return error(request.id, -32000, `${e}`)
   }
 }

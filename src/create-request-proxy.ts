@@ -1,4 +1,4 @@
-import { JsonRpcRequest } from '@blackglory/types'
+import { JsonRpcRequest, Dict } from '@blackglory/types'
 import { request } from 'json-rpc-creator'
 
 type RequestProxy<T, U> = {
@@ -8,10 +8,10 @@ type RequestProxy<T, U> = {
       : never
 }
 
-export function createRequestProxy<T extends object, U = unknown>(createId: () => string): RequestProxy<T, U> {
+export function createRequestProxy<T extends Dict<Function>, U = unknown>(createId: () => string): RequestProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
-      return (...args: U[]) => request(createId(), prop, args)
+      return (...args: unknown[]) => request(createId(), prop, args)
     }
   }) as RequestProxy<T, U>
 }
