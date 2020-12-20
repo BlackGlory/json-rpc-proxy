@@ -1,8 +1,8 @@
-import { isFunction, JsonRpcNotification, Dict } from '@blackglory/types'
+import { isFunction, JsonRpcNotification } from '@blackglory/types'
 import { getParams } from './shared'
 
 export async function applyNotification<T>(
-  callables: Dict<Function>
+  callables: object
 , notification: JsonRpcNotification<T>
 ): Promise<void> {
   const fn = Reflect.get(callables, notification.method)

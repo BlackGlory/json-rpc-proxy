@@ -1,9 +1,9 @@
-import { isFunction, JsonRpcRequest, JsonRpcResponse, Dict } from '@blackglory/types'
+import { isFunction, JsonRpcRequest, JsonRpcResponse } from '@blackglory/types'
 import { success, error } from 'json-rpc-creator'
 import { getParams } from './shared'
 
 export async function applyRequest<T>(
-  callables: Dict<Function>
+  callables: object
 , request: JsonRpcRequest<T>
 ): Promise<JsonRpcResponse<T>> {
   const fn = Reflect.get(callables, request.method)

@@ -15,23 +15,23 @@ yarn add json-rpc-proxy
 ### createRequestProxy
 
 ```ts
-function createRequestProxy<T extends Dict<Function>, U = unknown>(createId: () => string): RequestProxy<T, U>
+function createRequestProxy<T extends object, U = unknown>(createId: () => string): RequestProxy<T, U>
 ```
 
 ### createNotificationProxy
 
 ```ts
-function createNotificationProxy<T extends Dict<Function>, U = unknown>(): NotificationProxy<T, U>
+function createNotificationProxy<T extends object, U = unknown>(): NotificationProxy<T, U>
 ```
 
 ### applyRequest
 
 ```ts
-function applyRequest<T>(callables: Dict<Function>, request: JsonRpcRequest<T>): Promise<JsonRpcResponse<T>>
+function applyRequest<T>(callables: object, request: JsonRpcRequest<T>): Promise<JsonRpcResponse<T>>
 ```
 
 ### applyNotification
 
 ```ts
-function applyNotification<T>(callables: Dict<Function>, notification: JsonRpcNotification<T>): Promise<void>
+function applyNotification<T>(callables: object, notification: JsonRpcNotification<T>): Promise<void>
 ```
