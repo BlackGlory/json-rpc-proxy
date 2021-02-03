@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.7](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.6.6...v0.6.7) (2021-02-03)
+
+
+### Bug Fixes
+
+* bundle ([73e2c8b](https://github.com/BlackGlory/json-rpc-proxy/commit/73e2c8b8498c8484639132f838506277f840120f))
+
 ### [0.6.6](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.6.5...v0.6.6) (2021-02-03)
 
 ### [0.6.5](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.6.4...v0.6.5) (2021-01-20)
