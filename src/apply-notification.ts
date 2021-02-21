@@ -1,5 +1,5 @@
 import { isFunction, JsonRpcNotification } from '@blackglory/types'
-import { getParams } from './shared'
+import { getParams } from './utils'
 
 export async function applyNotification<T>(
   callables: object

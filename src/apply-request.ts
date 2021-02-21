@@ -1,13 +1,13 @@
-import { isFunction, JsonRpcRequest, JsonRpcResponse } from '@blackglory/types'
+import { isntFunction, JsonRpcRequest, JsonRpcResponse } from '@blackglory/types'
 import { success, error } from 'json-rpc-creator'
-import { getParams } from './shared'
+import { getParams } from './utils'
 
 export async function applyRequest<T>(
   callables: object
 , request: JsonRpcRequest<T>
 ): Promise<JsonRpcResponse<T>> {
   const fn = Reflect.get(callables, request.method)
-  if (!isFunction(fn)) {
+  if (isntFunction(fn)) {
     return error(request.id, -32601, 'The method does not exist / is not available.')
   }
 

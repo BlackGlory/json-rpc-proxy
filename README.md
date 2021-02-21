@@ -2,6 +2,8 @@
 
 The helper functions for JSON-RPC 2.0 requests and notifications.
 
+**The module does not check types, nor convert unsupported types (e.g., `undefined` to `null`). This is to allow JSON-RPC to support as many types and protocols as possible.**
+
 ## Install
 
 ```sh
