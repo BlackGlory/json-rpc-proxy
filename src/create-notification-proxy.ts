@@ -1,6 +1,5 @@
-import { JsonRpcNotification } from '@blackglory/types'
+import { JsonRpcNotification, FunctionKeys } from '@blackglory/types'
 import { notification } from 'json-rpc-creator'
-import { FunctionKeys } from './types'
 
 type NotificationProxy<T, U> = {
   [P in FunctionKeys<T>]:

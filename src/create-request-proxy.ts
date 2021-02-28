@@ -1,6 +1,5 @@
-import { JsonRpcRequest } from '@blackglory/types'
+import { JsonRpcRequest, FunctionKeys } from '@blackglory/types'
 import { request } from 'json-rpc-creator'
-import { FunctionKeys } from './types'
 
 type RequestProxy<T, U> = {
   [P in FunctionKeys<T>]:

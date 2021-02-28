@@ -305,6 +305,15 @@
     ajv "^7.1.1"
     extra-dom "^0.2.9"
 
+"@blackglory/types@^0.2.19":
+  version "0.2.19"
+  resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-0.2.19.tgz#db726ecb1ebbac160d8be342ff491ffc20f4f1b6"
+  integrity sha512-KpuiajoRJ/9AcKO6JSkS7zeOVqHJOJU3si1wAzosSZbezS4f42HVoWP3YDUKA6oPzJCTAVxUE1ntIYi6iCQtPA==
+  dependencies:
+    "@types/node" "^14.14.31"
+    ajv "^7.1.1"
+    extra-dom "^0.2.12"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -2292,6 +2301,14 @@ extglob@^2.0.4:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+extra-dom@^0.2.12:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/extra-dom/-/extra-dom-0.2.12.tgz#2be1a6a482d7d8afe9c84d40dd9408482730c68d"
+  integrity sha512-7hTL+yRzpQZeeHhLTaWcUhwpimivFGiq0+Nrv3xfUeNeSuP00iNFHPI7dSLMmOiIEuRNSLuEd7M8xA8RvfmEoQ==
+  dependencies:
+    "@blackglory/types" "^0.2.17"
+    iterable-operator "^0.13.2"
 
 extra-dom@^0.2.9:
   version "0.2.11"
