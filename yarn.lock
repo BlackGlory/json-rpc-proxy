@@ -2910,10 +2910,10 @@ hosted-git-info@^3.0.6:
   dependencies:
     lru-cache "^6.0.0"
 
-hotypes@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/hotypes/-/hotypes-0.1.2.tgz#0df2637acc4f3930389f69e1a3d1d0e32ced7e41"
-  integrity sha512-1n3nQdGoje1tReA+OEUiYW6Sz36nPn+ysCMqL7Rzl7z0eg+BYjzTo6g6wk6ifiP9VSsGbJ0COC+gtLQjpusBcA==
+hotypes@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/hotypes/-/hotypes-0.1.4.tgz#c5066f9db3447247418633cef3d2c955e19ac5df"
+  integrity sha512-6xl2Gwd/xTmgG1XKs3faY8bZ84w5bNkoqkakAnii7EiKr6Qpi5aCajYWU1IBIMX4m1HpfoeuKZ1RHmSPuKhi6Q==
 
 html-encoding-sniffer@^2.0.1:
   version "2.0.1"

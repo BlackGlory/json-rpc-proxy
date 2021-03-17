@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@blackglory/types": "^0.4.1",
-    "hotypes": "^0.1.2",
+    "hotypes": "^0.1.4",
     "json-rpc-creator": "^3.0.12"
   }
 }
