@@ -1,6 +1,6 @@
 {
   "name": "json-rpc-proxy",
-  "version": "0.6.11",
+  "version": "0.6.12",
   "description": "The helper functions for JSON-RPC 2.0 requests and notifications",
   "keywords": [
     "json-rpc",
