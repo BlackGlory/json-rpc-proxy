@@ -40,7 +40,7 @@
     }
   },
   "devDependencies": {
-    "@blackglory/jest-matchers": "^0.1.12",
+    "@blackglory/jest-matchers": "^0.1.13",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -49,14 +49,14 @@
     "@rollup/plugin-replace": "^2.4.1",
     "@rollup/plugin-typescript": "^8.2.0",
     "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
-    "eslint": "^7.21.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "rollup": "^2.40.0",
+    "rollup": "^2.41.4",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "standard-version": "^9.1.1",
@@ -66,7 +66,8 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@blackglory/types": "^0.3.1",
-    "json-rpc-creator": "^3.0.10"
+    "@blackglory/types": "^0.4.0",
+    "hotypes": "^0.1.2",
+    "json-rpc-creator": "^3.0.12"
   }
 }

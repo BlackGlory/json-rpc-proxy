@@ -1,7 +1,8 @@
-import { JsonRpcRequest, FunctionKeys } from '@blackglory/types'
+import { JsonRpcRequest } from '@blackglory/types'
 import { request } from 'json-rpc-creator'
+import { FunctionKeys } from 'hotypes'
 
-type RequestProxy<T, U> = {
+type RequestProxy<T extends object, U> = {
   [P in FunctionKeys<T>]:
     T[P] extends (...args: infer V) => unknown
       ? (...args: V) => JsonRpcRequest<U>
