@@ -1,6 +1,7 @@
-import { isntFunction, JsonRpcRequest, JsonRpcResponse } from '@blackglory/types'
+import { isntFunction } from '@blackglory/types'
+import { JsonRpcRequest, JsonRpcResponse } from 'justypes'
 import { success, error } from 'json-rpc-creator'
-import { getParams } from './utils'
+import { getParamsAsArray } from './utils'
 
 export async function applyRequest<T>(
   callables: object
@@ -12,7 +13,7 @@ export async function applyRequest<T>(
   }
 
   try {
-    const result = await Reflect.apply(fn, callables, getParams(request))
+    const result = await Reflect.apply(fn, callables, getParamsAsArray(request))
     return success(request.id, result)
   } catch (e) {
     return error(request.id, -32000, `${e}`)

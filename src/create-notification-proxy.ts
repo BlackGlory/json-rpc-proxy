@@ -1,4 +1,4 @@
-import { JsonRpcNotification } from '@blackglory/types'
+import { JsonRpcNotification } from 'justypes'
 import { notification } from 'json-rpc-creator'
 import { FunctionKeys } from 'hotypes'
 
@@ -9,7 +9,10 @@ type NotificationProxy<T extends object, U> = {
       : never
 }
 
-export function createNotificationProxy<T extends object, U = unknown>(): NotificationProxy<T, U> {
+export function createNotificationProxy<
+  T extends object
+, U = unknown
+>(): NotificationProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
       return (...args: unknown[]) => notification(prop, args)

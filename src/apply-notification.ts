@@ -1,5 +1,6 @@
-import { isFunction, JsonRpcNotification } from '@blackglory/types'
-import { getParams } from './utils'
+import { isFunction } from '@blackglory/types'
+import { JsonRpcNotification } from 'justypes'
+import { getParamsAsArray } from './utils'
 
 export async function applyNotification<T>(
   callables: object
@@ -8,7 +9,7 @@ export async function applyNotification<T>(
   const fn = Reflect.get(callables, notification.method)
   if (isFunction(fn)) {
     try {
-      await Reflect.apply(fn, callables, getParams(notification))
+      await Reflect.apply(fn, callables, getParamsAsArray(notification))
     } catch {}
   }
 }

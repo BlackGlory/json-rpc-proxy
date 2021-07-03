@@ -1,4 +1,4 @@
-import { JsonRpcRequest } from '@blackglory/types'
+import { JsonRpcRequest } from 'justypes'
 import { request } from 'json-rpc-creator'
 import { FunctionKeys } from 'hotypes'
 
@@ -9,7 +9,9 @@ type RequestProxy<T extends object, U> = {
       : never
 }
 
-export function createRequestProxy<T extends object, U = unknown>(createId: () => string): RequestProxy<T, U> {
+export function createRequestProxy<T extends object, U = unknown>(
+  createId: () => string
+): RequestProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
       return (...args: unknown[]) => request(createId(), prop, args)

@@ -1,6 +1,8 @@
-import { JsonRpcRequest, JsonRpcNotification } from '@blackglory/types'
+import { JsonRpcRequest, JsonRpcNotification } from 'justypes'
 
-export function getParams<T>(jsonRpc: JsonRpcRequest<T> | JsonRpcNotification<T>) {
+export function getParamsAsArray<T>(
+  jsonRpc: JsonRpcRequest<T> | JsonRpcNotification<T>
+): T[] | [Record<string, T>] {
   if (jsonRpc.params) {
     if (Array.isArray(jsonRpc.params)) {
       return jsonRpc.params
