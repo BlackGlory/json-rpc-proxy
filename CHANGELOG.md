@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.6.17...v0.7.0) (2021-11-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* do not allow proxy `then` method
+
+### Bug Fixes
+
+* do not allow proxy `then` method ([f2b29ce](https://github.com/BlackGlory/json-rpc-proxy/commit/f2b29ced57b56b625e1b39afeb434809ac7f0c93))
+
 ### [0.6.17](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.16.6...v0.6.17) (2021-10-14)
 
 ### [0.6.16](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.6.15...v0.6.16) (2021-07-03)
