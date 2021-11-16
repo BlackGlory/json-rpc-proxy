@@ -15,6 +15,7 @@ export function createNotificationProxy<
 >(): NotificationProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
+      if (['then'].includes(prop)) return
       return (...args: unknown[]) => notification(prop, args)
     }
   }) as NotificationProxy<T, U>

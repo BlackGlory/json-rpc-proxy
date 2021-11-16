@@ -14,6 +14,7 @@ export function createRequestProxy<T extends object, U = unknown>(
 ): RequestProxy<T, U> {
   return new Proxy(Object.create(null), {
     get(_: T, prop: string) {
+      if (['then'].includes(prop)) return
       return (...args: unknown[]) => request(createId(), prop, args)
     }
   }) as RequestProxy<T, U>
