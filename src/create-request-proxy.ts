@@ -1,4 +1,4 @@
-import { JsonRpcRequest } from 'justypes'
+import { JsonRpcRequest } from 'json-rpc-types'
 import { request } from 'json-rpc-creator'
 import { FunctionKeys } from 'hotypes'
 

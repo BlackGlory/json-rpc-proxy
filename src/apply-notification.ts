@@ -1,5 +1,5 @@
 import { isFunction } from '@blackglory/types'
-import { JsonRpcNotification } from 'justypes'
+import { JsonRpcNotification } from 'json-rpc-types'
 import { getParamsAsArray } from './utils'
 import { pass } from '@blackglory/pass'
 

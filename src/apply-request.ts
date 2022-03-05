@@ -1,5 +1,5 @@
 import { isntFunction } from '@blackglory/types'
-import { JsonRpcRequest, JsonRpcResponse } from 'justypes'
+import { JsonRpcRequest, JsonRpcResponse } from 'json-rpc-types'
 import { success, error } from 'json-rpc-creator'
 import { getParamsAsArray } from './utils'
 

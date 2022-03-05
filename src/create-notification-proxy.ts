@@ -1,4 +1,4 @@
-import { JsonRpcNotification } from 'justypes'
+import { JsonRpcNotification } from 'json-rpc-types'
 import { notification } from 'json-rpc-creator'
 import { FunctionKeys } from 'hotypes'
 
