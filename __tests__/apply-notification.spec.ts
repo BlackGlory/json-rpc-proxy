@@ -1,6 +1,5 @@
 import { applyNotification } from '@src/apply-notification'
 import { notification } from 'json-rpc-creator'
-import '@blackglory/jest-matchers'
 
 describe(`
   applyNotification(
@@ -12,11 +11,9 @@ describe(`
     const callables = {}
     const req = notification('fn')
 
-    const result = applyNotification(callables, req)
-    const proResult = await result
+    const result = await applyNotification(callables, req)
 
-    expect(result).toBePromise()
-    expect(proResult).toBeUndefined()
+    expect(result).toBeUndefined()
   })
 
   test('method throws error', async () => {
@@ -24,11 +21,9 @@ describe(`
     const callables = { fn }
     const req = notification('fn')
 
-    const result = applyNotification(callables, req)
-    const proResult = await result
+    const result = await applyNotification(callables, req)
 
-    expect(result).toBePromise()
-    expect(proResult).toBeUndefined()
+    expect(result).toBeUndefined()
   })
 
   test('request.params doesnt exist', async () => {
@@ -36,13 +31,11 @@ describe(`
     const callables = { fn }
     const notice = notification('fn')
 
-    const result = applyNotification(callables, notice)
-    const proResult = await result
+    const result = await applyNotification(callables, notice)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
     expect(fn).toBeCalledWith()
-    expect(proResult).toBeUndefined()
+    expect(result).toBeUndefined()
   })
 
   test('notification.params by-position', async () => {
@@ -50,13 +43,11 @@ describe(`
     const callables = { hello: fn }
     const notice = notification('hello', ['world'])
 
-    const result = applyNotification(callables, notice)
-    const proResult = await result
+    const result = await applyNotification(callables, notice)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
     expect(fn).toBeCalledWith('world')
-    expect(proResult).toBeUndefined()
+    expect(result).toBeUndefined()
   })
 
   test('notification.params by-name', async () => {
@@ -64,12 +55,10 @@ describe(`
     const callables = { hello: fn }
     const notice = notification('hello', { who: 'world' })
 
-    const result = applyNotification(callables, notice)
-    const proResult = await result
+    const result = await applyNotification(callables, notice)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
     expect(fn).toBeCalledWith({ who: 'world' })
-    expect(proResult).toBeUndefined()
+    expect(result).toBeUndefined()
   })
 })

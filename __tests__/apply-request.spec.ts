@@ -1,6 +1,5 @@
 import { applyRequest } from '@src/apply-request'
 import { request } from 'json-rpc-creator'
-import '@blackglory/jest-matchers'
 
 describe(`
   applyRequest(
@@ -12,11 +11,9 @@ describe(`
     const callables = {}
     const req = request(0, 'fn')
 
-    const result = applyRequest(callables, req)
-    const proResult = await result
+    const result = await applyRequest(callables, req)
 
-    expect(result).toBePromise()
-    expect(proResult).toStrictEqual({
+    expect(result).toStrictEqual({
       jsonrpc: '2.0'
     , id: 0
     , error: {
@@ -31,11 +28,9 @@ describe(`
     const callables = { fn }
     const req = request(0, 'fn')
 
-    const result = applyRequest(callables, req)
-    const proResult = await result
+    const result = await applyRequest(callables, req)
 
-    expect(result).toBePromise()
-    expect(proResult).toStrictEqual({
+    expect(result).toStrictEqual({
       jsonrpc: '2.0'
     , id: 0
     , error: {
@@ -50,12 +45,10 @@ describe(`
     const callables = { fn }
     const req = request(0, 'fn')
 
-    const result = applyRequest(callables, req)
-    const proResult = await result
+    const result = await applyRequest(callables, req)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
-    expect(proResult).toStrictEqual({
+    expect(result).toStrictEqual({
       jsonrpc: '2.0'
     , id: 0
     , result: 'hello world'
@@ -67,12 +60,10 @@ describe(`
     const callables = { fn }
     const req = request(0, 'fn', ['message'])
 
-    const result = applyRequest(callables, req)
-    const proResult = await result
+    const result = await applyRequest(callables, req)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
-    expect(proResult).toStrictEqual({
+    expect(result).toStrictEqual({
       jsonrpc: '2.0'
     , id: 0
     , result: 'message'
@@ -84,12 +75,10 @@ describe(`
     const callables = { fn }
     const req = request(0, 'fn', { message: 'hello world' })
 
-    const result = applyRequest(callables, req)
-    const proResult = await result
+    const result = await applyRequest(callables, req)
 
-    expect(result).toBePromise()
     expect(fn).toBeCalledTimes(1)
-    expect(proResult).toStrictEqual({
+    expect(result).toStrictEqual({
       jsonrpc: '2.0'
     , id: 0
     , result: 'hello world'
