@@ -6,7 +6,10 @@
     "json-rpc",
     "proxy"
   ],
-  "files": ["lib"],
+  "files": [
+    "lib",
+    "src"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:BlackGlory/json-rpc-proxy.git",
