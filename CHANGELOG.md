@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.7.5...v0.8.0) (2026-02-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* - CommonJS => ESM
+- Node.js v14 => Node.js v22
+
+* upgrade dependencies ([135a7f5](https://github.com/BlackGlory/json-rpc-proxy/commit/135a7f5907650816fee105f1f5be1d3c91eb25b8))
+
 ### [0.7.5](https://github.com/BlackGlory/json-rpc-proxy/compare/v0.7.4...v0.7.5) (2023-06-11)
 
 
