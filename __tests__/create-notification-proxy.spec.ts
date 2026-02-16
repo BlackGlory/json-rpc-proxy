@@ -1,4 +1,5 @@
-import { createNotificationProxy } from '@src/create-notification-proxy'
+import { describe, it, expect } from 'vitest'
+import { createNotificationProxy } from '@src/create-notification-proxy.js'
 
 describe(`
   createNotificationProxy<
@@ -23,7 +24,7 @@ describe(`
   it('does not allow proxy `then`', async () => {
     const result = createNotificationProxy()
 
-    // @ts-ignore
+    // @ts-expect-error
     expect(result.then).toBeUndefined()
   })
 })

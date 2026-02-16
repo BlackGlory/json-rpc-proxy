@@ -1,7 +1,7 @@
-import { isntFunction } from '@blackglory/types'
+import { isntFunction } from '@blackglory/prelude'
 import { JsonRpcRequest, JsonRpcResponse } from 'json-rpc-types'
 import { success, error } from 'json-rpc-creator'
-import { getParamsAsArray } from './utils'
+import { getParamsAsArray } from './utils.js'
 
 export async function applyRequest<T>(
   callables: object

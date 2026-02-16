@@ -1,5 +1,5 @@
 import { JsonRpcRequest, JsonRpcNotification } from 'json-rpc-types'
-import { isArray } from '@blackglory/types'
+import { isArray } from '@blackglory/prelude'
 
 export function getParamsAsArray<T>(
   jsonRpc: JsonRpcRequest<T> | JsonRpcNotification<T>

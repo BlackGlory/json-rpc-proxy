@@ -1,4 +1,5 @@
-import { applyRequest } from '@src/apply-request'
+import { describe, test, expect, vi } from 'vitest'
+import { applyRequest } from '@src/apply-request.js'
 import { request } from 'json-rpc-creator'
 
 describe(`
@@ -24,7 +25,7 @@ describe(`
   })
 
   test('method throws error', async () => {
-    const fn = jest.fn().mockRejectedValue(new Error('message'))
+    const fn = vi.fn().mockRejectedValue(new Error('message'))
     const callables = { fn }
     const req = request(0, 'fn')
 
@@ -41,7 +42,7 @@ describe(`
   })
 
   test('request.params doesnt exist', async () => {
-    const fn = jest.fn().mockResolvedValue('hello world')
+    const fn = vi.fn().mockResolvedValue('hello world')
     const callables = { fn }
     const req = request(0, 'fn')
 
@@ -56,7 +57,7 @@ describe(`
   })
 
   test('request.params by-position', async () => {
-    const fn = jest.fn().mockImplementation(async (message: string) => message)
+    const fn = vi.fn().mockImplementation(async (message: string) => message)
     const callables = { fn }
     const req = request(0, 'fn', ['message'])
 
@@ -71,7 +72,7 @@ describe(`
   })
 
   test('request.params by-name', async () => {
-    const fn = jest.fn().mockImplementation(async ({ message }: { message: string }) => message)
+    const fn = vi.fn().mockImplementation(async ({ message }: { message: string }) => message)
     const callables = { fn }
     const req = request(0, 'fn', { message: 'hello world' })
 

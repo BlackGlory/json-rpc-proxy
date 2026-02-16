@@ -1,4 +1,5 @@
-import { createRequestProxy } from '@src/create-request-proxy'
+import { describe, it, expect, vi } from 'vitest'
+import { createRequestProxy } from '@src/create-request-proxy.js'
 
 describe(`
   createRequestProxy<T extends object, U = unknown>(
@@ -9,7 +10,7 @@ describe(`
     interface Remote {
       hello(who: string): string
     }
-    const createId = jest.fn().mockReturnValue(0)
+    const createId = vi.fn().mockReturnValue(0)
 
     const result = createRequestProxy<Remote>(createId).hello('world')
 
@@ -23,10 +24,10 @@ describe(`
   })
 
   it('does not allow proxy `then`', async () => {
-    const createId = jest.fn().mockReturnValue(0)
+    const createId = vi.fn().mockReturnValue(0)
     const result = createRequestProxy(createId)
 
-    // @ts-ignore
+    // @ts-expect-error
     expect(result.then).toBeUndefined()
   })
 })

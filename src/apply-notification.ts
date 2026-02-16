@@ -1,7 +1,6 @@
-import { isFunction } from '@blackglory/types'
+import { isFunction, pass } from '@blackglory/prelude'
 import { JsonRpcNotification } from 'json-rpc-types'
-import { getParamsAsArray } from './utils'
-import { pass } from '@blackglory/pass'
+import { getParamsAsArray } from './utils.js'
 
 export async function applyNotification<T>(
   callables: object

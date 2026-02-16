@@ -1,4 +1,5 @@
-import * as target from '@src/index'
+import { test, expect } from 'vitest'
+import * as target from '@src/index.js'
 
 test('exports', () => {
   const expected = [

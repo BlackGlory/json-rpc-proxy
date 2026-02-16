@@ -1,4 +1,5 @@
-import { applyNotification } from '@src/apply-notification'
+import { describe, test, expect, vi } from 'vitest'
+import { applyNotification } from '@src/apply-notification.js'
 import { notification } from 'json-rpc-creator'
 
 describe(`
@@ -17,7 +18,7 @@ describe(`
   })
 
   test('method throws error', async () => {
-    const fn = jest.fn().mockRejectedValue(new Error('message'))
+    const fn = vi.fn().mockRejectedValue(new Error('message'))
     const callables = { fn }
     const req = notification('fn')
 
@@ -27,7 +28,7 @@ describe(`
   })
 
   test('request.params doesnt exist', async () => {
-    const fn = jest.fn().mockResolvedValue(undefined)
+    const fn = vi.fn().mockResolvedValue(undefined)
     const callables = { fn }
     const notice = notification('fn')
 
@@ -39,7 +40,7 @@ describe(`
   })
 
   test('notification.params by-position', async () => {
-    const fn = jest.fn().mockResolvedValue(undefined)
+    const fn = vi.fn().mockResolvedValue(undefined)
     const callables = { hello: fn }
     const notice = notification('hello', ['world'])
 
@@ -51,7 +52,7 @@ describe(`
   })
 
   test('notification.params by-name', async () => {
-    const fn = jest.fn().mockResolvedValue(undefined)
+    const fn = vi.fn().mockResolvedValue(undefined)
     const callables = { hello: fn }
     const notice = notification('hello', { who: 'world' })
 
